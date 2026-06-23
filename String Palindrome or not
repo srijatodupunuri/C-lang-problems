@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+    char name[100];
+    char rev[100];
+    int j=0;
+    printf("\n Enter the name:");
+    fgets(name,sizeof name,stdin);
+    name[strcspn(name,"\n")]='\0';//Removes newline
+    for(int i= strlen(name)-1;i>=0;i--){
+        //printf("%c ",name[i],"\n");
+        rev[j]=name[i];
+        j++;
+    }
+    rev[j]='\0';
+    puts(rev);
+    if(strcmp(name, rev)==0 ){
+        printf("It is a palindrome");
+    }else{
+        printf("It is not a palindrome");
+    }
+    
+}
