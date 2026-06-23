@@ -1,0 +1,122 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+struct node{
+    int data;
+    struct node *next;
+} *p = NULL;  // ✅ Fix 1: Initialize p to NULL (not uninitialized tmp)
+
+void insert_beg(int);
+void insert_end(int);
+void delete_beg();
+void delete_end();
+void display();
+
+int main(){   // ✅ Fix 2: main() must return int, not void
+    int val, n;
+    char ch;
+
+    do{
+        printf("\n--------------menu---------------");
+        printf("\n1. Insert at beg");
+        printf("\n2. Insert at end");
+        printf("\n3. Delete from beg");
+        printf("\n4. Delete from end");
+        printf("\n5. Display");
+        printf("\n6. Exit");
+        printf("\nEnter your choice: ");
+        scanf("%d", &n);
+
+        switch(n){
+            case 1: printf("\nEnter the value: ");
+                    scanf("%d", &val);
+                    insert_beg(val);
+                    break;
+            case 2: printf("\nEnter the value: ");
+                    scanf("%d", &val);
+                    insert_end(val);
+                    break;
+            case 3: delete_beg();
+                    break;
+            case 4: delete_end();
+                    break;
+            case 5: display();
+                    break;
+            case 6: exit(0);
+            default: printf("\nWrong choice");
+                    break;
+        }
+
+        printf("\n.....do u want to continue (y/n)....");
+        scanf(" %c", &ch);   // ✅ Fix 3: replaced getch() — needs conio.h (non-standard)
+    } while(ch == 'y');
+
+    return 0;
+}
+
+void insert_beg(int ele){
+    struct node *tmp = (struct node*)malloc(sizeof(struct node));
+    tmp->data = ele;
+    tmp->next = p;   // Works for both NULL and non-NULL p
+    p = tmp;
+}
+
+void insert_end(int ele){
+    struct node *tmp1 = (struct node*)malloc(sizeof(struct node));
+    tmp1->data = ele;        // ✅ Fix 4: store ele in new node (tmp1), not in tmp
+    tmp1->next = NULL;
+
+    if(p == NULL){
+        p = tmp1;
+    } else {
+        struct node *tmp = p;
+        while(tmp->next != NULL){   // ✅ Fix 4: traverse tmp, then link tmp1
+            tmp = tmp->next;
+        }
+        tmp->next = tmp1;
+    }
+}
+
+void delete_beg(){
+    if(p == NULL){
+        printf("No element to delete\n");
+    } else {
+        struct node *tmp = p;
+        printf("%d deleted from beginning\n", p->data);
+        p = p->next;
+        free(tmp);   // ✅ Good practice: free memory
+    }
+}
+
+void delete_end(){
+    if(p == NULL){
+        printf("No element to delete\n");
+    } else if(p->next == NULL){   // ✅ Fix 5: was (p->next != NULL) — condition was flipped
+        printf("%d deleted from end\n", p->data);
+        free(p);
+        p = NULL;
+    } else {
+        struct node *tmp = p;
+        struct node *pre = NULL;
+        while(tmp->next != NULL){
+            pre = tmp;
+            tmp = tmp->next;
+        }
+        printf("%d deleted from end\n", tmp->data);
+        pre->next = NULL;
+        free(tmp);
+    }
+}
+
+void display(){
+    struct node *tmp = p;
+    if(tmp == NULL){
+        printf("List is empty\n");
+        return;
+    }
+    while(tmp != NULL){
+        printf("%d -> ", tmp->data);
+        tmp = tmp->next;
+    }
+    printf("NULL\n");
+}
