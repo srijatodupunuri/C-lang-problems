@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200];
+    int i,temp,l;
+    printf("Enter a string: ");
+    scanf("%s",str);
+    l=strlen(str);
+    for (i = 0; str[i] != '\0' && str[i] != '\n'&& i<l-1; i++) {
+        for(int j=0;j<l-i-1;j++){
+            if(str[j]>str[j+1]){
+                temp=str[j];
+                str[j]=str[j+1];
+                str[j+1]=temp;
+            }
+        }
+    }       
+    for(int i=0;i<l;i++){
+    }printf("Sorted string array is %s",str);
+    return 0;
+}
