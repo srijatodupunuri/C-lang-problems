@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char name[100],sub[50];
+    int s, l,i,j;
+    printf("\n Please enter a name :");
+    fgets(name,sizeof(name),stdin);
+    printf("\n Please input the position to start extraction: ");
+    scanf("%d",&s);
+    printf("\n Please Input length of substring:");
+    scanf("%d",&l);
+    for(i=0;i<l;i++){
+        if(name[s+i]=='\0' || name[s+i]=='\n')
+            break;
+        sub[i]=name[s+i];
+        }
+        sub[i]='\0';
+        
+    printf("The substring is %s",sub);
+	return 0; 
+    
+}
