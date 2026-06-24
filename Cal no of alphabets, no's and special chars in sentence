@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+      char sent[200];
+      int counta,countd,counts;
+      counta=countd=counts=0;      
+      printf("\n Enter any sentence: ");
+      fgets(sent, sizeof (sent),stdin);
+      for(int i=0;sent[i]!='\0';i++){
+          if((sent[i]>='a' && sent[i]<='z') || (sent[i]>='A' && sent[i]<='Z')){
+              counta++;
+          }else if(sent[i]>='0' && sent[i]<='9'){
+              countd++;
+          }else{
+              counts++;
+          }
+      }
+      printf("\n No of Alphabets :%d",counta);
+      printf("\n No of numbers :%d",countd);
+      printf("\n No of Specials :%d",counts);
+      return 0;
+}
