@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+      char sent[200];
+      int i,count,t;
+      i=t=count=0;
+      printf("\n Enter 1st sentence: ");
+      fgets(sent,sizeof (sent),stdin);
+      //strcpy(sent2,sent);
+      for(i=0;sent[i]!='\0';i++){
+          if((sent[i]=='a'||sent[i]=='e'||sent[i]=='i'||sent[i]=='o'||sent[i]=='u')||(sent[i]=='A'||sent[i]=='E'||sent[i]=='I'||sent[i]=='O'||sent[i]=='U')){
+          count++;
+              
+          }else if(sent[i]!=' ' && sent[i]!='\n'){
+              t++;
+          }
+      }
+      printf("\n No of vowels in sentence are : %d",count);
+      printf("\n No of consonants are :%d",t);
+      return 0;
+}
