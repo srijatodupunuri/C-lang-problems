@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int main() {
+      char sent[200],sent2[200];
+      int i=0;
+      printf("\n Enter 1st sentence: ");
+      fgets(sent,sizeof (sent),stdin);
+      //strcpy(sent2,sent);
+      for(i=0;sent[i]!='\0';i++){
+          sent2[i]=sent[i];
+      }
+      sent2[i]='\0';
+      printf("\n sent2 is copy of sent1: %s",sent2);
+      
+      
+      
+      
+      return 0;
+}
