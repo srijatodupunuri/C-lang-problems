@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i,sum=0;
+    while(1){
+    printf("Enter a no: ");
+    scanf("%d",&i);
+    if(i!=0 && i<=20 && i%2==0){
+        i=i*i*i;
+        sum+=i;
+       }else{
+           printf("Either this no is more than 20 or an odd no so please enter only even nos less than 20 \n");
+           break;
+       }
+    }printf("The sum of cubes of even numbers from 1 to 20 is %d",sum);
+
+    return 0;
+}
