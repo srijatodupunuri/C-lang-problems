@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char username[100];
+    int valid, len, hasDigit;
+
+    while (1) {
+        valid   = 1;
+        len     = 0;
+        hasDigit = 0;
+
+        printf("Enter username: ");
+        scanf("%s", username);
+
+        // Find length
+        while (username[len] != '\0') {
+            len++;
+        }
+
+        // Check minimum 8 characters
+        if (len < 8) {
+            printf("Too short! Username must be at least 8 characters.\n\n");
+            valid = 0;
+        }
+
+        // Check at least one digit
+        int i = 0;
+        while (username[i] != '\0') {
+            if (username[i] >= '0' && username[i] <= '9') {
+                hasDigit = 1;
+                break;
+            }
+            i++;
+        }
+
+        if (!hasDigit) {
+            printf("Must contain at least one number!\n\n");
+            valid = 0;
+        }
+
+        // If both conditions passed
+        if (valid) {
+            printf("Valid username: %s\n", username);
+            break;
+        }
+
+        printf("Try again...\n\n");
+        
+    }
+
+    return 0;
+}
