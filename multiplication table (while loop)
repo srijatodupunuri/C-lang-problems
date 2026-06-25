@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int i=1,n,m;
+    printf("Enter table no :");
+    scanf("%d",&n);
+    while(i<=10){
+       m=n*i;
+       printf("%d*%d=%d\n",n,i,m);
+       i++;
+    }
+
+    return 0;
+}
