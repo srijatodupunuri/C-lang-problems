@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    int arr[100], n = 0, num, i;
+    int duplicate = 0;
+
+    while (1) {
+        printf("Enter number: ");
+        scanf("%d", &num);
+
+        // Check if number already exists
+        for (i = 0; i < n; i++) {
+            if (arr[i] == num) {
+                duplicate = 1;
+                break;
+            }
+        }
+
+        if (duplicate) {
+            printf("Duplicate found: %d! Loop terminated.\n", num);
+            break;
+        }
+
+        arr[n] = num;
+        n++;
+    }
+
+    printf("\nNumbers entered: ");
+    for (i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}
