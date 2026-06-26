@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {1,0,1,0,0,1,0,1,1,0,1,0,0,1};
+    int l = 14, arr1[10],arr2[10];
+    
+
+    for (int i = 0; i < l; i++) {
+        if (arr[i] == 0) {
+            arr1[i] = arr[i];   
+            printf("%d",arr1[i]);
+        }
+    }
+    for (int i = 0; i < l; i++) {
+          if(arr[i]==1){
+            arr2[i]=arr[i];
+            printf("%d",arr2[i]);
+        }
+        
+    }
+    return 0;
+}
