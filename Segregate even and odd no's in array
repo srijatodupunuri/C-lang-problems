@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    int arr[] = {5,13,14,21,34,1,11,10,18,23,37,4,8,12};
+    int l = 14, arr1[20],arr2[20];
+    
+
+    for (int i = 0; i < l; i++) {
+        if (arr[i]%2== 0) {
+            arr1[i] = arr[i];   
+            printf("even no: %d\n",arr1[i]);
+        }
+    }
+    printf("\n");
+    for (int i = 0; i < l; i++) {
+          if(arr[i]%2!=0){
+            arr2[i]=arr[i];
+            printf("odd no:%d\n",arr2[i]);
+        }
+        
+    }
+    return 0;
+}
