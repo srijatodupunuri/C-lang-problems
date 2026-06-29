@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main()
+{
+    int m = 10;
+    int *ptr;
+    float *ptr2;
+    char *ptr3;
+    ptr=&m;
+    float fx=3.4;
+    ptr2=&fx;
+    char ch='s';
+    ptr3=&ch;
+    printf("%d,%f,%c\n",m,fx,ch);
+    printf("%p,%p,%p\n",&m,&fx,&ch);
+    printf("%d,%f,%c\n",*(&m),*(&fx),*(&ch));
+    printf("%d,%f,%c\n",*ptr,*ptr2,*ptr3);
+    printf("%p,%p,%p\n",ptr,ptr2,ptr3);
+    return 0;
+    
+}
+->important: * gives the value at that address
+             & gives the address  
