@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct student{
+    int age;
+    char name[20];
+    float marks;
+};
+
+int main() {
+    struct student s1,s2;
+    printf("Enter student s1 name:");
+    scanf("%s",s1.name);
+    printf("Enter student s1 age:");
+    scanf("%d",&s1.age);
+    printf("Enter student s1 marks:");
+    scanf("%f",&s1.marks);
+    printf("Enter student s2 name:");
+    scanf("%s",s2.name);
+    printf("Enter student s2 age:");
+    scanf("%d",&s2.age);
+    printf("Enter student s2 marks:");
+    scanf("%f",&s2.marks);
+    printf("s1 name is :%s\n",s1.name);
+    printf("s1 age is :%d\n",s1.age);
+    printf("s1 marks are :%f\n",s1.marks);
+    printf("s2 name is :%s\n",s2.name);
+    printf("s2 age is :%d\n",s2.age);
+    printf("s2 marks are :%f\n",s2.marks);
+    printf("Average of both students marks are:%f",(s1.marks+s2.marks)/2);
+return 0;
+}
