@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+   int arr[50],l;
+   int *ptr=arr;
+   printf("Enter no of array elements: ");
+   scanf("%d",&l);
+   printf("Enter %d no of array elements: \n",l);
+   for(int i=0;i<l;i++){
+       printf("element-%d: ",i);
+       scanf("%d",arr+i);
+   }printf("Array of elements: ");
+   for(int i=0;i<l;i++){
+       printf("%d\t",*(arr+i));
+   }
+}
+
+Summary Table:
+Expression         Meaning                  Equivalent to
+arr            Address of first element       &arr[0]     
+arr + i        Address of i-th element        &arr[i]
+*(arr + i)     Value at i-th element          arr[i]
+*arr           Value at first element         arr[0]
